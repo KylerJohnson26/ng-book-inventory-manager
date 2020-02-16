@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { from, of, Observable } from 'rxjs';
+import { from, of, Observable, BehaviorSubject } from 'rxjs';
 import { Book } from './book';
 
 @Injectable({
@@ -7,7 +7,10 @@ import { Book } from './book';
 })
 export class BookService {
 
-  private readonly books: Book[] = [{
+  private booksSubject$ = new BehaviorSubject([]);
+  readonly books$ = this.booksSubject$.asObservable();
+
+  private books: Book[] = [{
     id: 1,
     title: 'Dao De Jing',
     author: 'Laozi',
@@ -62,7 +65,9 @@ export class BookService {
     return of(this.books);
   }
 
-
+  setBooks(): void {
+    this.booksSubject$.next(this.books);
+  }
 
   constructor() { }
 }

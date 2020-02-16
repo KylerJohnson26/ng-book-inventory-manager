@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
-    this.books$ = this.bookService.getBooks();
+    this.bookService.setBooks();
+    this.books$ = this.bookService.books$;
   }
 
 }
