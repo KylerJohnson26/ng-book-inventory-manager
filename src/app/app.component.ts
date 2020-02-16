@@ -1,11 +1,7 @@
-import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService } from './book.service';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Book } from './book';
-import { tap, map } from 'rxjs/operators';
-import { DataSource } from '@angular/cdk/table';
-import { CollectionViewer } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-root',
