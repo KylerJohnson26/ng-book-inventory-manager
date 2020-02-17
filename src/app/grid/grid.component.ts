@@ -1,14 +1,14 @@
-import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy } from "@angular/core";
-import { Book } from "../book";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+import { Book } from '../book';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
-  selector: "app-grid",
-  templateUrl: "./grid.component.html",
-  styleUrls: ["./grid.component.scss"],
+  selector: 'app-grid',
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.scss'],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements OnInit, AfterViewInit {
   columns = ['id', 'title', 'author', 'category', 'price'];
   @Input() books: Book[];
   dataSource: MatTableDataSource<Book>;
@@ -20,7 +20,7 @@ export class GridComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource<Book>(this.books);
-    console.log(this.books)
+    console.log(this.books);
   }
 
   /**

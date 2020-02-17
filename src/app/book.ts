@@ -1,7 +1,9 @@
-export interface Book {
-  id: number,
-  title: string,
-  author: string,
-  category: string,
-  price: number
+export class Book {
+  constructor(
+    public id: number,
+    public title: string,
+    public author: string,
+    public category: string,
+    public price: number
+  ) {}
 }

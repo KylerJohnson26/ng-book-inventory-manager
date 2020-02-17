@@ -1,1 +1,31 @@
-<p>add-book works!</p>
+<mat-card class="add-book-card">
+  <mat-card-header class="card-header">
+    <mat-card-title>Add New Book</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <form [formGroup]="addBookForm" class="add-book-form">
+      <mat-form-field class="add-book-input title">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+      <mat-form-field class="add-book-input author">
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author">
+      </mat-form-field>
+      <mat-form-field class="add-book-input category">
+        <mat-label>Category</mat-label>
+        <input matInput formControlName="category">
+      </mat-form-field>
+      <mat-form-field class="add-book-input price">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-footer class="footer">
+    <mat-card-actions class="card-actions">
+      <button mat-raised-button>Cancel</button>
+      <button mat-raised-button color="accent" (click)="addBook()">Add</button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

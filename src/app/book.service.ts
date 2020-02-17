@@ -69,5 +69,18 @@ export class BookService {
     this.booksSubject$.next(this.books);
   }
 
+  addNewBook(newBook): void {
+    let currentBooks = [...this.booksSubject$.value];
+    const newBookId = this.generateNewBookId(currentBooks);
+    const bookToAdd = new Book(newBookId, newBook.title, newBook.author, newBook.category, +newBook.price);
+    currentBooks.push(bookToAdd);
+    console.log(currentBooks);
+    this.booksSubject$.next(currentBooks);
+  }
+
+  private generateNewBookId(books: Book[]): number {
+    return this.books.length + 1;
+  }
+
   constructor() { }
 }
