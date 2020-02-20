@@ -1,14 +1,16 @@
-import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy, AfterViewInit, OnChanges } from '@angular/core';
 import { Book } from '../book';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { BookService } from '../book.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GridComponent implements OnInit, AfterViewInit {
+export class GridComponent implements OnInit, AfterViewInit, OnChanges {
   columns = ['id', 'title', 'author', 'category', 'price'];
   @Input() books: Book[];
   dataSource: MatTableDataSource<Book>;
@@ -16,18 +18,20 @@ export class GridComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
 
-  constructor() {}
+  constructor(private bookService: BookService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<Book>(this.books);
+    this.dataSource = new MatTableDataSource(this.books);
     console.log(this.books);
   }
 
-  /**
-   * Set the paginator and sort after the view init since this component will
-   * be able to query its view for the initialized paginator and sort.
-   */
   ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  ngOnChanges() {
+    this.dataSource = new MatTableDataSource(this.books);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

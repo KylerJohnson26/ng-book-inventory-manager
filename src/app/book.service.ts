@@ -7,8 +7,8 @@ import { Book } from './book';
 })
 export class BookService {
 
-  private booksSubject$ = new BehaviorSubject([]);
-  readonly books$ = this.booksSubject$.asObservable();
+  public booksSubject$ = new BehaviorSubject([]);
+  readonly books$: Observable<Book[]> = this.booksSubject$.asObservable();
 
   private books: Book[] = [{
     id: 1,
@@ -70,10 +70,9 @@ export class BookService {
   }
 
   addNewBook(newBook): void {
-    let currentBooks = [...this.booksSubject$.value];
-    const newBookId = this.generateNewBookId(currentBooks);
+    const newBookId = this.generateNewBookId(this.booksSubject$.value);
     const bookToAdd = new Book(newBookId, newBook.title, newBook.author, newBook.category, +newBook.price);
-    currentBooks.push(bookToAdd);
+    const currentBooks = [...this.booksSubject$.value, bookToAdd];
     console.log(currentBooks);
     this.booksSubject$.next(currentBooks);
   }

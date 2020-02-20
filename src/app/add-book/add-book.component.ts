@@ -20,6 +20,11 @@ export class AddBookComponent implements OnInit {
     this.buildFormGroup();
   }
 
+  connect() {
+    console.log('connect method fired');
+    return this.bookService.books$;
+  }
+
   buildFormGroup(): void {
     this.addBookForm = this.formBuilder.group({
       title: ['', Validators.required],
