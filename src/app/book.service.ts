@@ -81,5 +81,10 @@ export class BookService {
     return this.books.length + 1;
   }
 
+  deleteBook(id: number) {
+    const booksWithoutDeletedBook = this.booksSubject$.value.filter(book => book.id !== id);
+    this.booksSubject$.next(booksWithoutDeletedBook);
+  }
+
   constructor() { }
 }

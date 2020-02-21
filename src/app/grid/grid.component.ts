@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridComponent implements OnInit, AfterViewInit, OnChanges {
-  columns = ['id', 'title', 'author', 'category', 'price'];
+  columns = ['id', 'title', 'author', 'category', 'price', 'actions'];
   @Input() books: Book[];
   dataSource: MatTableDataSource<Book>;
 
@@ -40,5 +40,9 @@ export class GridComponent implements OnInit, AfterViewInit, OnChanges {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  deleteBook(id: number) {
+    this.bookService.deleteBook(id);
   }
 }
