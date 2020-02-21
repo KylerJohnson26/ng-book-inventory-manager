@@ -1,4 +1,18 @@
 <div class="app-wrapper mat-app-background" *ngIf="books$ | async as books">
-  <app-grid [books]="books"></app-grid>
-  <app-add-book></app-add-book>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Book Inventory</span>
+      <span class="nav-spacer"></span>
+      <a mat-raised-button class="add-btn" [color]="'accent'" routerLink="/add">Add Book</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="app-content">
+    <div class="grid-container">
+      <app-grid [books]="books"></app-grid>
+    </div>
+    <div class="sub-component-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- <app-add-book></app-add-book> -->
 </div>

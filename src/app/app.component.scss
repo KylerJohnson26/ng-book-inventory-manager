@@ -1,1 +1,14 @@
+.app-wrapper {
 
+  .nav-spacer {
+    flex: 1 1 auto;
+  }
+
+  .app-content {
+    height: 100%;
+    display: grid;
+    padding: 1rem 0;
+    grid-template-columns: 4fr 1fr min-content;
+    gap: 1rem;
+  }
+}
