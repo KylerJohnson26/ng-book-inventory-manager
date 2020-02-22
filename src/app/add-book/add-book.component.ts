@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
+import { SubComponentDirective } from '../shared/directives/sub-component.directive';
 
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
-  styleUrls: ['./add-book.component.scss']
+  styleUrls: ['./add-book.component.scss'],
 })
-export class AddBookComponent implements OnInit {
+export class AddBookComponent extends SubComponentDirective implements OnInit {
 
   addBookForm: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,
     private bookService: BookService
-  ) { }
+  ) { super(); }
 
   ngOnInit() {
     this.buildFormGroup();

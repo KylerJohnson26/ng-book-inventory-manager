@@ -17,6 +17,7 @@ import {
   MatButtonModule,
   MatToolbarModule
 } from '@angular/material';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {
     MatButtonModule,
     CdkTableModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

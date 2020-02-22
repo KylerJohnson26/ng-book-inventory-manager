@@ -1,52 +1,59 @@
 <ng-container *ngIf="dataSource">
-  <div class="filter">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
-  <table mat-table [dataSource]="dataSource" matSort>
-    <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let book"> {{book.id}} </td>
-    </ng-container>
+  <mat-card class="grid-card">
+    <mat-card-header class="card-header">
+      <mat-card-title class="card-title">Book List</mat-card-title>
+      <div class="filter">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let book"> {{book.id}} </td>
+        </ng-container>
 
-    <!-- Title Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Title </th>
-      <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
-    </ng-container>
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
+        </ng-container>
 
-    <!-- Author Column -->
-    <ng-container matColumnDef="author">
-      <th mat-header-cell *matHeaderCellDef> Author </th>
-      <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
-    </ng-container>
+        <!-- Author Column -->
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+        </ng-container>
 
-    <!-- Category Column -->
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let book"> {{ book.category.length > 1 ? book.category : 'N/A' }} </td>
-    </ng-container>
+        <!-- Category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let book"> {{ book.category.length > 1 ? book.category : 'N/A' }} </td>
+        </ng-container>
 
-    <!-- Price Column -->
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef> Price </th>
-      <td mat-cell *matCellDef="let book"> {{ book.price | currency }} </td>
-    </ng-container>
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let book"> {{ book.price | currency }} </td>
+        </ng-container>
 
-    <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let book">
-        <a mat-raised-button [color]="'primary'" class="grid-action-btn edit-action-btn" [routerLink]="['edit', book.id]">Edit</a>
-        <a mat-raised-button [color]="'accent'" class="grid-action-btn delete-action-btn" (click)="deleteBook(book.id)">Delete</a>
-      </td>
-    </ng-container>
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let book">
+            <a mat-raised-button [color]="'primary'" class="grid-action-btn edit-action-btn" [routerLink]="['edit', book.id]">Edit</a>
+            <a mat-raised-button [color]="'accent'" class="grid-action-btn delete-action-btn" (click)="deleteBook(book.id)">Delete</a>
+          </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
 </ng-container>
 

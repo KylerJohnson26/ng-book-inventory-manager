@@ -1,14 +1,34 @@
-.filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 0 1rem;
-}
+.grid-card {
+  padding: 0;
 
-table {
-  width: 100%;
+  .card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-  .edit-action-btn {
-    margin-right: 1rem;
+    .card-title {
+      margin: 0;
+    }
+
+    .filter {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding: 0 1rem;
+    }
   }
+
+  .card-content {
+    table {
+      width: 100%;
+
+      .edit-action-btn {
+        margin-right: 1rem;
+      }
+    }
+  }
+
 }
+
+

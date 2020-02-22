@@ -6,9 +6,13 @@
 
   .app-content {
     height: 100%;
-    display: grid;
-    padding: 1rem 0;
-    grid-template-columns: 4fr 1fr min-content;
-    gap: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+
+    .grid-container {
+      flex: 100%;
+    }
+
   }
 }
