@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
-import { SubComponentDirective } from '../shared/directives/sub-component.directive';
+import { SubComponentDirective } from '../../shared/directives/sub-component.directive';
 
 @Component({
   selector: 'app-add-book',

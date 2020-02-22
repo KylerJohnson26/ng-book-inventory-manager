@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from './book.service';
+import { BookService } from './books/book.service';
 import { Observable } from 'rxjs';
-import { Book } from './book';
+import { Book } from './books/book';
 
 @Component({
   selector: 'app-root',
