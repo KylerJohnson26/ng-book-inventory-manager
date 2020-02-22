@@ -37,11 +37,12 @@ export class AddBookComponent extends SubComponentDirective implements OnInit {
 
   addBook(): void {
     if (this.addBookForm.invalid) {
-      console.log('Invalid');
+      console.log('Add Book Form Invalid');
       return;
     }
 
     this.bookService.addNewBook(this.addBookForm.value);
+    this.addBookForm.reset();
   }
 
 }
