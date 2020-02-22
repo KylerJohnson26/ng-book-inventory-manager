@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { from, of, Observable, BehaviorSubject } from 'rxjs';
 import { Book } from './book';
+import { findIndex } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,17 @@ export class BookService {
 
   setBooks(): void {
     this.booksSubject$.next(this.books);
+  }
+
+  getBookById(id: number): Book {
+    return this.booksSubject$.value.find(book => book.id = id);
+  }
+
+  updateBook(book: Book): void {
+    const books = [...this.booksSubject$.value];
+    const bookIndex = books.findIndex(bk => bk.id = book.id);
+    books.splice(bookIndex, 1, book);
+    this.booksSubject$.next(books);
   }
 
   addNewBook(newBook): void {

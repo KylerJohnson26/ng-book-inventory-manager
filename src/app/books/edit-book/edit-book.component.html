@@ -1,0 +1,36 @@
+<mat-card class="edit-book-card">
+  <mat-card-header class="card-header">
+    <mat-card-title>Edit Book</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-content" *ngIf="book$ | async as book; else noBook">
+    <ng-container *ngIf="editBookForm">
+      <form [formGroup]="editBookForm" class="edit-book-form">
+        <mat-form-field class="edit-book-input title">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field class="edit-book-input author">
+          <mat-label>Author</mat-label>
+          <input matInput formControlName="author">
+        </mat-form-field>
+        <mat-form-field class="edit-book-input category">
+          <mat-label>Category</mat-label>
+          <input matInput formControlName="category">
+        </mat-form-field>
+        <mat-form-field class="edit-book-input price">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price">
+        </mat-form-field>
+      </form>
+    </ng-container>
+    <ng-template #noBook>
+      <p>An unexpected problem occurred. Please try again later.</p>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-footer class="card-footer">
+    <mat-card-actions class="card-actions">
+      <a mat-raised-button routerLink="/">Cancel</a>
+      <button mat-raised-button [color]="'accent'" (click)="updateBook()">Save Changes</button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>
