@@ -3,7 +3,7 @@ import { SubComponentDirective } from 'src/app/shared/directives/sub-component.d
 import { BookService } from '../book.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Book } from '../book';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { tap, switchMap, map } from 'rxjs/operators';
 
@@ -20,6 +20,7 @@ export class EditBookComponent extends SubComponentDirective implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
+    private router: Router,
     public fb: FormBuilder
   ) { super(); }
 
@@ -47,6 +48,7 @@ export class EditBookComponent extends SubComponentDirective implements OnInit {
   saveChanges(): void {
     const book: Book = this.editBookform.value;
     this.bookService.updateBook(book);
+    this.router.navigateByUrl('/');
   }
 
 }
