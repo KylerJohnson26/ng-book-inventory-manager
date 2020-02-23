@@ -39,7 +39,7 @@ export class EditBookComponent extends SubComponentDirective implements OnInit {
       id: [book.id, Validators.required],
       title: [book.title, Validators.required],
       author: [book.author, Validators.required],
-      category: [book.category, Validators.required],
+      genre: [book.genre, Validators.required],
       price: [book.price, Validators.required]
     });
   }

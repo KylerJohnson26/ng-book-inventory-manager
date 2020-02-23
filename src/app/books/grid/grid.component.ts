@@ -13,7 +13,7 @@ import { tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridComponent implements OnInit, AfterViewInit, OnChanges {
-  columns = ['id', 'title', 'author', 'category', 'price', 'actions'];
+  columns = ['id', 'title', 'author', 'genre', 'price', 'actions'];
   @Input() books: Book[];
   dataSource: MatTableDataSource<Book>;
 

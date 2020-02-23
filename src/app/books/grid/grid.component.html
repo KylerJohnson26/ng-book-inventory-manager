@@ -28,10 +28,10 @@
           <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
         </ng-container>
 
-        <!-- Category Column -->
-        <ng-container matColumnDef="category">
-          <th mat-header-cell *matHeaderCellDef> Category </th>
-          <td mat-cell *matCellDef="let book"> {{ book.category.length > 1 ? book.category : 'N/A' }} </td>
+        <!-- Genre Column -->
+        <ng-container matColumnDef="genre">
+          <th mat-header-cell *matHeaderCellDef> Genre </th>
+          <td mat-cell *matCellDef="let book"> {{ book.genre.length > 1 ? book.genre : 'N/A' }} </td>
         </ng-container>
 
         <!-- Price Column -->

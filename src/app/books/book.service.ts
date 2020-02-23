@@ -43,7 +43,7 @@ export class BookService {
 
   addNewBook(newBook): void {
     const newBookId = this.generateNewBookId(this.booksSubject$.value);
-    const bookToAdd = new Book(newBookId, newBook.title, newBook.author, newBook.category, +newBook.price);
+    const bookToAdd = new Book(newBookId, newBook.title, newBook.author, newBook.genre, +newBook.price);
     const currentBooks = [...this.booksSubject$.value, bookToAdd];
     console.log(currentBooks);
     this.booksSubject$.next(currentBooks);

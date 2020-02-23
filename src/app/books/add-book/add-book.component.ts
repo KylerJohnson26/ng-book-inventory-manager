@@ -25,7 +25,7 @@ export class AddBookComponent extends SubComponentDirective implements OnInit {
   ngOnInit() {
     this.buildFormGroup();
 
-    this.filteredOptions$ = this.addBookForm.controls.category.valueChanges.pipe(
+    this.filteredOptions$ = this.addBookForm.controls.genre.valueChanges.pipe(
       filter(genreInput => !!genreInput),
       withLatestFrom(this.genreService.genres$),
       map(([genre, genres]) => ({ genre, genres })),
@@ -41,7 +41,7 @@ export class AddBookComponent extends SubComponentDirective implements OnInit {
     this.addBookForm = this.formBuilder.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
-      category: ['', Validators.required],
+      genre: ['', Validators.required],
       price: ['', Validators.required]
     });
   }
