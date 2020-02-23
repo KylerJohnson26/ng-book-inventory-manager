@@ -8,7 +8,8 @@ import {
   MatInputModule,
   MatCardModule,
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatIconModule
 } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     MatTableModule,
@@ -31,7 +33,8 @@ import { SharedModule } from '../shared/shared.module';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class AngularMaterialModule { }

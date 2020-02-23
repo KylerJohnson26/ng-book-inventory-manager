@@ -23,6 +23,14 @@
     table {
       width: 100%;
 
+      .mat-column-id {
+        width: 7.5%;
+      }
+
+      .mat-column-actions {
+        width: 15%;
+      }
+
       .edit-action-btn {
         margin-right: 1rem;
       }
