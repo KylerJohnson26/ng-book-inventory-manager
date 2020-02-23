@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { from, of, Observable, BehaviorSubject } from 'rxjs';
 import { Book } from './book';
 import { findIndex } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,63 +12,21 @@ export class BookService {
   public booksSubject$ = new BehaviorSubject([]);
   readonly books$: Observable<Book[]> = this.booksSubject$.asObservable();
 
-  private books: Book[] = [{
-    id: 1,
-    title: 'Dao De Jing',
-    author: 'Laozi',
-    category: 'Philosophy',
-    price: 50.00
-  }, {
-    id: 2,
-    title: 'Avesta',
-    author: 'Zoroaster',
-    category: 'Religious, Philosophy',
-    price: 50.00
-  }, {
-    id: 3,
-    title: 'The Great Learning',
-    author: 'Zhu Xi',
-    category: 'Philosophy',
-    price: 50.00
-  }, {
-    id: 4,
-    title: 'The Agamas',
-    author: 'Rishabhanatha',
-    category: 'Religious, Philosophy',
-    price: 50.00
-  }, {
-    id: 5,
-    title: 'Origin',
-    author: 'Dan Brown',
-    category: 'Mystery',
-    price: 50.00
-  }, {
-    id: 6,
-    title: 'Angels & Demons',
-    author: 'Dan Brown',
-    category: 'Mystery',
-    price: 50.00
-  }, {
-    id: 7,
-    title: 'The Atlantis Gene',
-    author: 'A.G. Riddle',
-    category: 'Sci-Fi',
-    price: 50.00
-  }, {
-    id: 8,
-    title: 'A Brief History of Time',
-    author: 'Stephen Hawking',
-    category: '',
-    price: 100.00
-  }];
-
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getBooks(): Observable<Book[]> {
-    return of(this.books);
+    return this.books$;
   }
 
   setBooks(): void {
-    this.booksSubject$.next(this.books);
+    // HttpClient HTTP action methods incorporate the RxJS take(1) operator
+    // so that the observable completes when the first value is emitted
+    // preventing any memory leaks
+    this.http
+      .get<Book[]>('assets/books-seed.json')
+      .subscribe(books => this.booksSubject$.next(books));
   }
 
   getBookById(id: number): Book {
@@ -91,7 +50,7 @@ export class BookService {
   }
 
   private generateNewBookId(books: Book[]): number {
-    return this.books.length + 1;
+    return this.booksSubject$.value.length + 1;
   }
 
   deleteBook(id: number) {
@@ -99,5 +58,4 @@ export class BookService {
     this.booksSubject$.next(booksWithoutDeletedBook);
   }
 
-  constructor() { }
 }
