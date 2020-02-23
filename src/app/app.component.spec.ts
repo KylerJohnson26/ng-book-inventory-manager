@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-mat-grid-example'`, () => {
+  it(`should have as title 'ng-book-inventory-manager'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ng-mat-grid-example');
+    expect(app.title).toEqual('ng-book-inventory-manager');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng-mat-grid-example app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ng-book-inventory-manager app is running!');
   });
 });
