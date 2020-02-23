@@ -2,6 +2,9 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
 import { SubComponentDirective } from '../../shared/directives/sub-component.directive';
+import { Observable } from 'rxjs';
+import { GenreService } from '../genre.service';
+import { startWith, map, withLatestFrom, tap, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-book',
@@ -10,19 +13,27 @@ import { SubComponentDirective } from '../../shared/directives/sub-component.dir
 })
 export class AddBookComponent extends SubComponentDirective implements OnInit {
 
+  filteredOptions$: Observable<string[]>;
   addBookForm: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,
-    private bookService: BookService
+    private bookService: BookService,
+    private genreService: GenreService
   ) { super(); }
 
   ngOnInit() {
     this.buildFormGroup();
+
+    this.filteredOptions$ = this.addBookForm.controls.category.valueChanges.pipe(
+      filter(genreInput => !!genreInput),
+      withLatestFrom(this.genreService.genres$),
+      map(([genre, genres]) => ({ genre, genres })),
+      map(filterData => this.filterGenres(filterData.genre, filterData.genres))
+    );
   }
 
   connect() {
-    console.log('connect method fired');
     return this.bookService.books$;
   }
 
@@ -43,6 +54,14 @@ export class AddBookComponent extends SubComponentDirective implements OnInit {
 
     this.bookService.addNewBook(this.addBookForm.value);
     this.addBookForm.reset();
+  }
+
+  private filterGenres(genre: string, genres: string[]): string[] {
+    const filterValue = genre.toLowerCase();
+    return genres.filter(option =>
+        option.toLowerCase()
+        .includes(filterValue)
+    );
   }
 
 }

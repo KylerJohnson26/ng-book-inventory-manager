@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,13 +8,14 @@ import { HttpClient } from '@angular/common/http';
 export class GenreService {
 
   genresSubject$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  readonly genres$: Observable<string[]> = this.genresSubject$.asObservable();
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getGenres(): string[] {
-    return this.genresSubject$.value;
+  getGenres(): Observable<string[]> {
+    return this.genres$;
   }
 
   setGenres(): void {
