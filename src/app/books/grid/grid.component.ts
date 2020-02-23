@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy, AfterViewInit, OnChanges } from '@angular/core';
 import { Book } from '../book';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { BookService } from '../book.service';
 import { tap } from 'rxjs/operators';
 

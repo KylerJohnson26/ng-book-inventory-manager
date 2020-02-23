@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ng-book-inventory-manager"
+  "defaultProject": "ng-book-inventory-manager",
+  "cli": {
+    "analytics": "7f748bf8-cdbe-48bd-a9a1-4c11c30824e1"
+  }
 }

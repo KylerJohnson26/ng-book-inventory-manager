@@ -2,7 +2,7 @@
   <mat-card-header class="card-header">
     <mat-card-title>Edit Book</mat-card-title>
   </mat-card-header>
-  <mat-card-content class="card-content" *ngIf="book$ | async as book; else noBook">
+  <mat-card-content class="card-content" *ngIf="book$ | async as book">
     <ng-container *ngIf="editBookform">
       <form [formGroup]="editBookform" class="edit-book-form">
         <mat-form-field class="edit-book-input title">
@@ -23,9 +23,6 @@
         </mat-form-field>
       </form>
     </ng-container>
-    <ng-template #noBook>
-      <p>An unexpected problem occurred. Please try again later.</p>
-    </ng-template>
   </mat-card-content>
   <mat-card-footer class="card-footer">
     <mat-card-actions class="card-actions">
