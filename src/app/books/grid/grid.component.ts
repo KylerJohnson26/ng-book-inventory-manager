@@ -22,7 +22,6 @@ export class GridComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.books);
-    console.log(this.books);
   }
 
   ngAfterViewInit() {
@@ -37,8 +36,8 @@ export class GridComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
 

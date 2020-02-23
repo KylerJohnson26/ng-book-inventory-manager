@@ -26,13 +26,11 @@ export class EditBookComponent extends SubComponentDirective implements OnInit {
   ngOnInit() {
     this.book$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        return of(+params.get('id'));
-      }),
-      map((id: number) => {
+        const id = +params.get('id');
         const book = this.bookService.getBookById(id);
         this.buildEditBookForm(book);
-        return book;
-      })
+        return of(book);
+      }),
     );
   }
 

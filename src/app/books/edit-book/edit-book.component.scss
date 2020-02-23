@@ -1,0 +1,25 @@
+.edit-book-card {
+
+  .card-content {
+
+    .edit-book-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .edit-book-input {
+        width: 100%;
+      }
+    }
+  }
+
+  .card-footer {
+
+    .card-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0 0 1rem 0;
+    }
+  }
+}

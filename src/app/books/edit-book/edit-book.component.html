@@ -3,8 +3,8 @@
     <mat-card-title>Edit Book</mat-card-title>
   </mat-card-header>
   <mat-card-content class="card-content" *ngIf="book$ | async as book; else noBook">
-    <ng-container *ngIf="editBookForm">
-      <form [formGroup]="editBookForm" class="edit-book-form">
+    <ng-container *ngIf="editBookform">
+      <form [formGroup]="editBookform" class="edit-book-form">
         <mat-form-field class="edit-book-input title">
           <mat-label>Title</mat-label>
           <input matInput formControlName="title">
@@ -29,8 +29,8 @@
   </mat-card-content>
   <mat-card-footer class="card-footer">
     <mat-card-actions class="card-actions">
-      <a mat-raised-button routerLink="/">Cancel</a>
-      <button mat-raised-button [color]="'accent'" (click)="updateBook()">Save Changes</button>
+      <a routerLink="/" mat-raised-button>Cancel</a>
+      <button mat-raised-button [color]="'accent'" (click)="saveChanges()">Save Changes</button>
     </mat-card-actions>
   </mat-card-footer>
 </mat-card>

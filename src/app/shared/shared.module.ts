@@ -4,6 +4,7 @@ import { SubComponentDirective } from './directives/sub-component.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,12 +17,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     SubComponentDirective,
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

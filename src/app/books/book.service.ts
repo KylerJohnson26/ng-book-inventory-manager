@@ -71,12 +71,13 @@ export class BookService {
   }
 
   getBookById(id: number): Book {
-    return this.booksSubject$.value.find(book => book.id = id);
+    const books = [...this.booksSubject$.value];
+    return books.find(book => book.id === id);
   }
 
   updateBook(book: Book): void {
     const books = [...this.booksSubject$.value];
-    const bookIndex = books.findIndex(bk => bk.id = book.id);
+    const bookIndex = books.findIndex(bk => bk.id === book.id);
     books.splice(bookIndex, 1, book);
     this.booksSubject$.next(books);
   }
