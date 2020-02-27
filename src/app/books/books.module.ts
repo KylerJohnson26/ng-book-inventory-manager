@@ -4,7 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
 import { BooksComponent } from './books/books.component';
-import { GridComponent } from './books/grid/grid.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 import { AddBookComponent } from './books/add-book/add-book.component';
 
 
@@ -13,7 +13,7 @@ import { AddBookComponent } from './books/add-book/add-book.component';
   declarations: [
     EditBookComponent,
     BooksComponent,
-    GridComponent,
+    BookListComponent,
     AddBookComponent
   ],
   imports: [

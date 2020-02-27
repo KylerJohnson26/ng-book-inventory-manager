@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookService {
 
-  public booksSubject$ = new BehaviorSubject([]);
+  private booksSubject$ = new BehaviorSubject([]);
   readonly books$: Observable<Book[]> = this.booksSubject$.asObservable();
 
   constructor(

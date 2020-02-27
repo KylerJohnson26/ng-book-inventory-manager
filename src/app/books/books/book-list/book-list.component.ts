@@ -6,12 +6,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BookService } from '../../book.service';
 
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
+  selector: 'app-book-list',
+  templateUrl: './book-list.component.html',
+  styleUrls: ['./book-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GridComponent implements OnInit, AfterViewInit, OnChanges {
+export class BookListComponent implements OnInit, AfterViewInit, OnChanges {
 
   columns = ['id', 'title', 'author', 'genre', 'price', 'actions'];
   @Input() books: Book[];
