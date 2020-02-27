@@ -1,10 +1,10 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BookService } from '../book.service';
-import { SubComponentDirective } from '../../shared/directives/sub-component.directive';
+import { BookService } from '../../book.service';
+import { SubComponentDirective } from '../../../shared/directives/sub-component.directive';
 import { Observable } from 'rxjs';
-import { GenreService } from '../genre.service';
-import { startWith, map, withLatestFrom, tap, filter } from 'rxjs/operators';
+import { GenreService } from '../../../shared/services/genre.service';
+import { map, withLatestFrom, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-book',

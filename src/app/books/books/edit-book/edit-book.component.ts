@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { SubComponentDirective } from 'src/app/shared/directives/sub-component.directive';
-import { BookService } from '../book.service';
+import { BookService } from '../../book.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Book } from '../book';
+import { Book } from '../../book';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, of, combineLatest, merge, scheduled } from 'rxjs';
 import { tap, switchMap, map, withLatestFrom, filter, mergeAll } from 'rxjs/operators';
-import { GenreService } from '../genre.service';
+import { GenreService } from '../../../shared/services/genre.service';
 
 @Component({
   selector: 'app-edit-book',

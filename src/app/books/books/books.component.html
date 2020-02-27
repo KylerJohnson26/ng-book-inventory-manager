@@ -1,0 +1,4 @@
+<div class="grid-container" *ngIf="books$ | async as books">
+  <app-grid [books]="books"></app-grid>
+</div>
+<router-outlet class="sub-component-container"></router-outlet>

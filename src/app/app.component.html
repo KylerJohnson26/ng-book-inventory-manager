@@ -1,4 +1,4 @@
-<div class="app-wrapper mat-app-background" *ngIf="books$ | async as books">
+<div class="app-wrapper mat-app-background">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>Book Inventory</span>
@@ -7,9 +7,6 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="app-content">
-    <div class="grid-container">
-      <app-grid [books]="books"></app-grid>
-    </div>
-    <router-outlet class="sub-component-container"></router-outlet>
+    <app-books></app-books>
   </div>
 </div>
