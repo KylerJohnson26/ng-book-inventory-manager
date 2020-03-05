@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BooksModule } from './books/books.module';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
   ],
   imports: [
     AppRoutingModule,
+    CoreModule,
     SharedModule.forRoot(),
     BooksModule,
     AngularMaterialModule
