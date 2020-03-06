@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
@@ -17,7 +16,6 @@ import { AddBookComponent } from './books/add-book/add-book.component';
     AddBookComponent
   ],
   imports: [
-    CommonModule,
     SharedModule,
     AngularMaterialModule
   ],

@@ -21,6 +21,7 @@ import { GenreService } from './services/genre.service';
     HttpClientModule
   ],
   exports: [
+    CommonModule,
     SubComponentDirective,
     BrowserModule,
     BrowserAnimationsModule,
