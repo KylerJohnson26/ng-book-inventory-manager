@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,12 +14,14 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     AppRoutingModule,
-    CoreModule,
+    CoreModule.forRoot(),
     SharedModule.forRoot(),
     BooksModule,
     AngularMaterialModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
